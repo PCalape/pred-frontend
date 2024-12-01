@@ -20,7 +20,7 @@ const Login = (props) => {
       return;
     }
 
-    if (!/^[a-zA-Z0-9._-]{6,32}$/.test(username)) {
+    if (!/^[a-zA-Z0-9._-]{5,32}$/.test(username)) {
       setUsernameError("Please enter a valid username");
       return;
     }
@@ -35,7 +35,7 @@ const Login = (props) => {
 
   // Log in a user using username and password
   const logIn = () => {
-    fetch("http://localhost:3080/login", {
+    fetch("http://localhost:3080/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const Login = (props) => {
     })
       .then((r) => r.json())
       .then((r) => {
-        if ("success" === r.message) {
+        if (r.token) {
           localStorage.setItem(
             "user",
             JSON.stringify({ username, token: r.token })
