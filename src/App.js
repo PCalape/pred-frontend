@@ -22,7 +22,7 @@ function App() {
     fetch("http://localhost:3080/auth/verify", {
       method: "POST",
       headers: {
-        "jwt-token": user.token,
+        Authorization: user.token,
       },
     })
       .then((r) => r.json())
