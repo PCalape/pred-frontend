@@ -9,10 +9,10 @@ function App() {
   const [username, setUsername] = useState("");
 
   useEffect(() => {
-    // Fetch the user email and token from local storage
+    // Fetch the user username and token from local storage
     const user = JSON.parse(localStorage.getItem("user"));
 
-    // If the token/email does not exist, mark the user as logged out
+    // If the token/username does not exist, mark the user as logged out
     if (!user || !user.token) {
       setLoggedIn(false);
       return;
@@ -40,7 +40,7 @@ function App() {
             path="/"
             element={
               <Home
-                email={username}
+                username={username}
                 loggedIn={loggedIn}
                 setLoggedIn={setLoggedIn}
               />

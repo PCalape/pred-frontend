@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
-  const [username, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [usernameError, setUsernameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -33,27 +33,27 @@ const Login = (props) => {
     logIn();
   };
 
-  // Log in a user using email and password
+  // Log in a user using username and password
   const logIn = () => {
-    fetch("http://localhost:3080/auth", {
+    fetch("http://localhost:3080/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email: username, password }),
+      body: JSON.stringify({ username, password }),
     })
       .then((r) => r.json())
       .then((r) => {
         if ("success" === r.message) {
           localStorage.setItem(
             "user",
-            JSON.stringify({ email: username, token: r.token })
+            JSON.stringify({ username, token: r.token })
           );
           props.setLoggedIn(true);
-          props.setEmail(username);
+          props.setUsername(username);
           navigate("/");
         } else {
-          window.alert("Wrong email or password");
+          window.alert("Wrong username or password");
         }
       });
   };
@@ -67,8 +67,8 @@ const Login = (props) => {
       <div className={"inputContainer"}>
         <input
           value={username}
-          placeholder="Enter your email here"
-          onChange={(ev) => setEmail(ev.target.value)}
+          placeholder="Enter your username here"
+          onChange={(ev) => setUsername(ev.target.value)}
           className={"inputBox"}
         />
         <label className="errorLabel">{usernameError}</label>
