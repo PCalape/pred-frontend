@@ -35,7 +35,7 @@ const Login = (props) => {
 
   // Log in a user using username and password
   const logIn = () => {
-    fetch("http://localhost:3080/auth/login", {
+    fetch("http://127.0.0.1:3080/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
