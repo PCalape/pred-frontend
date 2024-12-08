@@ -19,7 +19,7 @@ function App() {
     }
 
     // If the token exists, verify it with the auth server to see if it is valid
-    fetch("http://pred-backend_app_1:3080/auth/verify", {
+    fetch("http://localhost:3080/auth/verify", {
       method: "POST",
       headers: {
         Authorization: user.token,
