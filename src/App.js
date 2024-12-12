@@ -19,7 +19,7 @@ function App() {
     }
 
     // If the token exists, verify it with the auth server to see if it is valid
-    fetch(`${process.env.BACKEND_ADDRESS}/auth/verify`, {
+    fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/auth/verify`, {
       method: "POST",
       headers: {
         Authorization: user.token,

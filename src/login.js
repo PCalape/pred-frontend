@@ -35,7 +35,7 @@ const Login = (props) => {
 
   // Log in a user using username and password
   const logIn = () => {
-    fetch(`${process.env.BACKEND_ADDRESS}/auth/login`, {
+    fetch(`${process.env.REACT_APP_BACKEND_ADDRESS}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
