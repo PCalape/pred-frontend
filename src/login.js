@@ -35,7 +35,7 @@ const Login = (props) => {
 
   // Log in a user using username and password
   const logIn = () => {
-    fetch("http://13.210.197.133:3080/auth/login", {
+    fetch(`${process.env.BACKEND_ADDRESS}/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +61,7 @@ const Login = (props) => {
   return (
     <div className={"mainContainer"}>
       <div className={"titleContainer"}>
-        <div>Login</div>
+        <div>Welcome to PRED!</div>
       </div>
       <br />
       <div className={"inputContainer"}>
